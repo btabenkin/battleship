@@ -2,7 +2,11 @@ package battelship;
 
 import java.util.ArrayList;
 import java.util.Random;
-
+/**
+ * Class to represent a board of play
+ * @author family
+ *
+ */
 public class Board {
 	Random random = new Random();
 	String[][] _storage = new String[10][10];
