@@ -4,39 +4,23 @@ import java.util.ArrayList;
 
 public class PlacedShip {
 
-	private int _xStart;
-	private int _yStart;
-	private int _xEnd;
-	private int _yEnd;
-	private ArrayList<Integer[]> shipStorage = new ArrayList<>();
 	private Board _board;
 	private int _size;
 	private String _name;
+	private ArrayList<Integer[]> _shipStorage;
 
-	public PlacedShip(Ship ship, Board board, int xStart, int yStart) {
+	public PlacedShip(Ship ship, Board board, ArrayList<Integer[]> shipStorage) {
 		_board = board;
+		_shipStorage = shipStorage;
 		_size = ship.getSize();
 		_name = ship.getName();
 
-		_xStart = _xEnd = xStart;
-		_yStart = _yEnd = yStart;
-		if (_size % 2 > 0) {
-			_yEnd += _size;
-		} else {
-			_xEnd += _size;
-		}
-		for (int x = _xStart; x <= _xEnd; x++) {
-			for (int y = _yStart; y <= _yEnd; y++) {
-				shipStorage.add(new Integer[] { x, y });
-			}
-
-		}
 	}
 
 	public boolean hit(String who, int x, int y) {
 		// we hit , now record it - need to find it in our list
 		boolean hit = false;
-		for (Integer[] position : shipStorage) {
+		for (Integer[] position : _shipStorage) {
 			if (position[0] == x && position[1] == y) {
 				hit = true;
 				if (_board._storage[x][y] == "H") {
@@ -66,7 +50,7 @@ public class PlacedShip {
 	 */
 	public boolean sunk() {
 		int count = 0;
-		for (Integer[] position : shipStorage) {
+		for (Integer[] position : _shipStorage) {
 			if (_board._storage[position[0]][position[1]] == "H")
 				count++;
 		}

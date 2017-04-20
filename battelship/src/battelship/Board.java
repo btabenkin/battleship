@@ -31,12 +31,13 @@ public class Board {
 	}
 
 	public PlacedShip placePiece(Ship ship, int x, int y) {
-		if (!_storage[x][y].equals("-")) {
+		if (_storage[x][y] != "-") {
 			// not a free block
 			return null;
 		}
 		int size = ship.getSize();
 		int availSpots = 0;
+		ArrayList<Integer[]> storageData = new ArrayList<>();
 		// even go across, odd go down
 		if (size % 2 > 0) {
 			for (int p = y; p < 10 && p < y + size; p++) {
@@ -46,6 +47,7 @@ public class Board {
 			if (availSpots == size) {
 				for (int p = y; p < y + size; p++) {
 					_storage[x][p] = "S";
+					storageData.add(new Integer[] { x,p});
 				}
 			}
 		} else {
@@ -56,6 +58,7 @@ public class Board {
 			if (availSpots == size) {
 				for (int p = x; p < x + size; p++) {
 					_storage[p][y] = "S";
+					storageData.add(new Integer[] {p,y});
 
 				}
 			}
@@ -63,7 +66,7 @@ public class Board {
 		if (availSpots != size) {
 			return null;
 		}
-		return new PlacedShip(ship, this, x, y);
+		return new PlacedShip(ship, this, storageData);
 
 	}
 	public String toString()

@@ -26,7 +26,7 @@ public class Batleship {
 		Scanner input = new Scanner(System.in);
 		System.out.print("Would you like the computer to place your board (y/n)? ");
 		String answer = input.next();
-		if (answer == "y") {
+		if (answer.equals("y")) {
 			for (Ship ship : ships) {
 				userShips.add(userBoard.placePiece(ship));
 			}
