@@ -1,4 +1,3 @@
-package battelship;
 
 public class Ship {
 

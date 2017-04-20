@@ -1,5 +1,3 @@
-package battelship;
-
 import java.util.ArrayList;
 
 public class PlacedShip {
