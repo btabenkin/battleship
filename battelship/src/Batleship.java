@@ -33,7 +33,7 @@ public class Batleship {
 			for (Ship ship : ships) {
 				PlacedShip placedShip = null;
 				while (placedShip == null) {
-					System.out.println("Place: " + ship.getName() + " Size:" + ship.getSize());
+					System.out.println("Place: " + ship._name + " Size:" + ship._size);
 					System.out.print("Enter x position: ");
 					int x = input.nextInt();
 					System.out.print("Enter y position: ");

@@ -10,8 +10,8 @@ public class PlacedShip {
 	public PlacedShip(Ship ship, Board board, ArrayList<Integer[]> shipStorage) {
 		_board = board;
 		_shipStorage = shipStorage;
-		_size = ship.getSize();
-		_name = ship.getName();
+		_size = ship._size;
+		_name = ship._name;
 
 	}
 

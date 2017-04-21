@@ -32,7 +32,7 @@ public class Board {
 			// not a free block
 			return null;
 		}
-		int size = ship.getSize();
+		int size = ship._size;
 		int availSpots = 0;
 		ArrayList<Integer[]> storageData = new ArrayList<>();
 		// even go across, odd go down
